@@ -1,0 +1,115 @@
+{{# partial "titulo" }}
+<title>GeSoc.me - Crear operacion de egreso</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+<script type="text/javascript">
+	document.getElementById('opEgreso').className = "active";
+</script>
+{{#if visible }}
+<form class="form-compact" action="/opEgreso" method="POST">
+	{{else}}
+	<h3 style="color:rgb(36, 36, 70);margin-top:50px;" class="text-center"> {{estadoOperacion}} </h3>
+	<form class="form-compact" action="/opEgreso" method="POST" style="visibility:hidden;">
+
+		{{/if}}
+		<h2 class="text-center">Crear Operacion de Egreso</h2>
+		<hr />
+		<div class="container col-12">
+			<div class="jumbotron">
+				<div style="margin:auto; width:50%">
+					<div
+						style="margin-top:15px; display:flex; justify-content:space-between; width:100%; padding:10px;">
+						<label for="firstName"><u>Descripcion de la operacion:</u></label>
+						<div class="col-8">
+							<div class="input-group">
+								<input id="descripcion" name="descripcion" type="text" class="form-control"
+									style="width:200px">
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<div style="display:flex; justify-content:space-between;  width:100% ;  padding:10px;">
+						<label for="position" class="col-4 col-form-label-sm text-right"><u></u>Criterio de seleccion de
+							presupuesto:</u></label>
+						<div class="col-8">
+							<div class="input-group">
+								<select id="position" name="criterio" class="form-control" style="width:200px" enabled>
+									<option>NINGUNO</option>
+									<option>MENORVALOR</option>
+								</select>
+							</div>
+						</div>
+					</div>
+
+
+
+
+					<form>
+						<div
+							style="display:flex; flex-direction:column; justify-content:space-between ; width:100%; padding:10px;">
+							<label><u>Usuarios Revisores de la operacion:</u></label>
+
+
+							<div class="scroll">
+								{{#each usuarios}}
+								<div style="margin:4px ">
+								<label for="checkboxes-0" />
+									<input name="checkboxes" style="margin-right:4px" type="checkbox" checked="checked"
+										 value={{id}}/>{{nombre}}{{id}}
+								</div>
+								{{/each}}
+					
+							</div>
+						</div>
+					</form>
+					{{#if estadoOperacion}}
+					<div id ="visibility" class="box">
+						<p style="margin:auto; font-size:15px">{{estadoOperacion}}</p>
+					</div>
+					{{/if}}
+					<div class="display">
+						<input name="submit" class="btn btn-info btn-md" type="submit" value="Crear">
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		</div>
+		</div>
+	</form>
+
+
+
+<script>
+	setTimeout(function(){ document.getElementById("visibility").hidden=true; }, 2000);
+</script>
+
+<style>
+	.box{
+		background-color:rgb(12, 206, 164); border-radius:8px; width:auto; padding:5px; margin:5px;
+	}
+	.display{
+		width:100%; margin:auto; justify-content:flex-end; display:flex;
+	}
+	.scroll{
+		max-width: 100%; overflow-x:auto; display:flex;
+	}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+	{{/partial}}
+	{{> layout.html.hbs }}

@@ -1,0 +1,58 @@
+{{# partial "titulo" }}
+<title>GeSoc.me - Crear entidad</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+<h2 class="text-center">Crear Entidad Base</h2>
+		<hr/>
+<div class="jumbotron">
+    <form class="container col-8" action="/crearEntidadBase" method="POST" id="base">
+    <div style="margin:auto; width:50%">
+        <div style="display:flex; justify-content:space-between;  width:100% ;  padding:10px;">
+            <label for="nombreFicticio" ><u>Nombre ficticio de la entidad</u></label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-arrow-right"></i>
+                        </div>
+                    </div>
+                    <input id="nombreFicticio" name="nombreFicticio" type="text" style="width:300px; height:40px;">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div style="display:flex; justify-content:space-between;  width:100% ;  padding:10px;">
+            <label for="descripcion" class="col-4 col-form-label"><u>Descripcion</u></label>
+            <div class="col-8">
+                <textarea id="descripcion" name="descripcion" cols="40" rows="2" 
+                    required="required"></textarea>
+            </div>
+        </div>
+
+      	{{#if estadoEntidad}}
+		<div class="box" id="visibility">
+			<p style="margin:auto; font-size:15px">{{estadoEntidad}}</p>
+		</div>
+		{{/if}}
+					<div style="width:100%; margin:auto; justify-content:flex-end; display:flex ;">
+						<input name="submit" class="btn btn-info btn-md" type="submit" value="Crear">
+					</div>
+     </div>   
+    </form>
+</div>
+
+<style>
+    .box{
+        background-color:rgb(12, 206, 164); border-radius:8px; width:auto; padding:5px; margin:5px;
+    }
+</style>
+<script>
+	setTimeout(function(){ document.getElementById("visibility").hidden=true; }, 2000);
+</script>
+
+{{/partial}}
+{{> layout.html.hbs }}

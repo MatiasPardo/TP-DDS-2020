@@ -1,0 +1,31 @@
+{{# partial "titulo" }}
+	<title>GeSoc.me - Categorias</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+<div class="row paddingBottom20" >
+	
+	<form  class="container col-4" class="form-compact" action="/categorias/entidades" method="get" >
+		<div class="container form-group row" >
+			<h2 class="text-center">Nuestras Categorias</h2>
+			<hr />
+			<p class="espacio-parrafo">Para listar las entidades, primero elija la categoría sobre la cual desee emitir el listado.</p>
+	                          
+	    	<label for="select" class="col-4 col-form-label ">Seleccione una categoría</label> 
+		   	
+		    	<div class="col-8 select-items">
+				    				  
+		      		<select id="position" name="categoria" class="form-control" enabled>
+                        <option>Judiciales</option>
+                        <option>ONG</option>
+                        <option>Industria Agropecuaria</option>
+                    </select>
+		      		
+		    	</div>
+		    <br><br>
+	    	<button name="submit" type="submit" class="btn btn-primary">Listar</button>
+	  	</div> 
+  	</form>
+  </div> 
+{{/partial}}
+{{> layout.html.hbs }}

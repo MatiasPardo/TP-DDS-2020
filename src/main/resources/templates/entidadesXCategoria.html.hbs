@@ -1,0 +1,48 @@
+{{# partial "titulo" }}
+    <title>GeSoc.me - Entidades</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+
+	<div class="container" >
+	<h2 class="text-center">Nuestras Entidades</h2>
+	<hr />
+  
+	  {{#if hayEntidades }}
+	  <p class="espacio-parrafo">A continuación un listado de las entidades de la categoria: {{categoria}}</p>
+	                                            
+	  <div class="table-responsive">          
+	  <table class="table table-hover table-striped">
+
+	    <thead>
+	      <tr>
+	        <th>Nombre Ficticio</th>
+	        <th>Razon Social</th>
+	        <th>CUIT</th>
+	        <th>Direccion Postal</th>
+	        <th>Tipo Entidad</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+		  	{{#each entidades}}
+		      <tr>
+		        <td>{{nombreFicticio}}</td>
+		        <td>{{razonSocial}}</td>
+		        <td>{{CUIT}}</td>
+		        <td>{{direccionPostal}}</td>
+		        <td>{{tipo}}</td>			        
+		      </tr>
+		    {{/each}}
+		</tbody>
+	  </table>
+		{{else}}
+			<br>
+			<h4> No hay entidades para la categoria elegida.
+			Elija otra <a href="/categorias">categoria</a>	</h4>
+		{{/if}}
+	  </div>
+	</div>
+    
+{{/partial}}
+
+{{> layout.html.hbs }}

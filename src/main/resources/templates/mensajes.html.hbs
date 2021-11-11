@@ -1,0 +1,52 @@
+{{# partial "titulo" }}
+    <title>GeSoc.me - Home</title>
+{{/partial}}
+
+{{# partial "contenido" }}
+	  <script type="text/javascript">
+		document.getElementById('lMensajes').className = "active";
+	  </script>
+
+	<h2 class="text-center">Bandeja de Mensajes</h2>
+	<hr />
+      <h3> Mensajes recibidos </h3>
+     
+     <div class="disp">
+      <h3 class="text">Descripcion</h3>
+      <h3 class="text">Validacion</h3>
+      <h3 class="text">Resultados</h3>
+       </div>
+     
+      {{#each mensajes}}
+       <div class="disp">
+       <div class="text">
+      <p>{{operacionDeEgreso.descripcion}}</p>
+      </div>
+      <div class="text">
+     
+      {{#if esValida}}
+      <p> Es valida </p>
+      {{else}}
+      <p> No es valida </p>
+  	  {{/if}}
+  	  </div>
+  	  <div class="text">
+      <p>{{resultados}}</p>
+      </div>
+       </div>
+	  {{/each}}
+	  			
+
+{{/partial}}
+
+{{> layout.html.hbs }}
+
+
+<style>
+  .disp{
+    display:flex; justify-content:space-between; margin:10px; border-bottom:solid black 1px;
+  }
+  .text{
+    min-width:33%;
+  }
+</style>
